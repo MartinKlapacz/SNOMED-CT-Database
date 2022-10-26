@@ -1,9 +1,9 @@
 /* create the Full S-CT data tables */
-/* Change the table suffix for different release type. _f stands for full, _d stands for delta, _s stands for snapshot */
+/* Change the table suffix for different release type. _s stands for full, _d stands for delta, _s stands for snapshot */
 set schema 'snomedct';
 
-drop table if exists concept_f cascade;
-create table concept_f(
+drop table if exists concept cascade;
+create table concept(
   id varchar(18) not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -12,8 +12,8 @@ create table concept_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists description_f cascade;
-create table description_f(
+drop table if exists description cascade;
+create table description(
   id varchar(18) not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -26,8 +26,8 @@ create table description_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists textdefinition_f cascade;
-create table textdefinition_f(
+drop table if exists textdefinition cascade;
+create table textdefinition(
   id varchar(18) not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -40,8 +40,8 @@ create table textdefinition_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists relationship_f cascade;
-create table relationship_f(
+drop table if exists relationship cascade;
+create table relationship(
   id varchar(18) not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -55,8 +55,8 @@ create table relationship_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists stated_relationship_f cascade;
-create table stated_relationship_f(
+drop table if exists stated_relationship cascade;
+create table stated_relationship(
   id varchar(18) not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -70,8 +70,8 @@ create table stated_relationship_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists langrefset_f cascade;
-create table langrefset_f(
+drop table if exists langrefset cascade;
+create table langrefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -82,8 +82,8 @@ create table langrefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists associationrefset_f cascade;
-create table associationrefset_f(
+drop table if exists associationrefset cascade;
+create table associationrefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -94,8 +94,8 @@ create table associationrefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists attributevaluerefset_f cascade;
-create table attributevaluerefset_f(
+drop table if exists attributevaluerefset cascade;
+create table attributevaluerefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -106,8 +106,8 @@ create table attributevaluerefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists simplerefset_f cascade;
-create table simplerefset_f(
+drop table if exists simplerefset cascade;
+create table simplerefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -117,8 +117,8 @@ create table simplerefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists simplemaprefset_f cascade;
-create table simplemaprefset_f(
+drop table if exists simplemaprefset cascade;
+create table simplemaprefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -129,8 +129,8 @@ create table simplemaprefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists complexmaprefset_f cascade;
-create table complexmaprefset_f(
+drop table if exists complexmaprefset cascade;
+create table complexmaprefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
@@ -146,8 +146,8 @@ create table complexmaprefset_f(
   PRIMARY KEY(id, effectivetime)
 );
 
-drop table if exists extendedmaprefset_f cascade;
-create table extendedmaprefset_f(
+drop table if exists extendedmaprefset cascade;
+create table extendedmaprefset(
   id uuid not null,
   effectivetime char(8) not null,
   active char(1) not null,
