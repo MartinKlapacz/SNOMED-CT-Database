@@ -24,3 +24,4 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_DISABLE_POSTFIX: 0
+      PGADMIN_LISTEN_PORT: 5050
