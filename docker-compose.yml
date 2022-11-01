@@ -6,8 +6,7 @@ services:
     image: postgres
     container_name: snomedct_postgres
     restart: unless-stopped
-    ports:
-      - 5432:5432
+    network_mode: host
     environment:
       POSTGRES_PASSWORD: test123
       POSTGRES_DB: snomedct
@@ -16,22 +15,12 @@ services:
       - ./PostgreSQL/scripts:/docker-entrypoint-initdb.d
       - ./SnomedCT_InternationalRF2_PRODUCTION_20220930T120000Z:/SnomedCT:ro
 
-#  neo4j:
-#    image: neo4j:3.5
-#    container_name: snomedct_neo4j
-#    restart: unless-stopped
-#    ports:
-#      - 7474:7474
-#      - 7687:7687
-#    volumes:
-#      - ./conf:/conf
-#      - ./data:/data
-#      - ./import:/import
-#      - ./logs:/logs
-#      - ./plugins:/plugins
-#    environment:
-#      - NEO4J_dbms_memory_pagecache_size=1G
-#      - NEO4J_dbms.memory.heap.initial_size=1G
-#      - NEO4J_dbms_memory_heap_max__size=1G
-#      - NEO4J_USERNAME='snomedct'
-#      - NEO4J_PASSWORD='test123'
+  pgadmin:
+    container_name: snomedct_pgadmin4
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DISABLE_POSTFIX: 0
